@@ -1,7 +1,13 @@
 class Student < ApplicationRecord
-
-  def to_s
-    "#{first_name} #{last_name}"
-  end
+   def index
+      students = Student.all
+      render json: students
+    end
+  
+    def grades
+      students = Student.order(grade: :desc)
+      render json: students
+    end
+  
 
 end
